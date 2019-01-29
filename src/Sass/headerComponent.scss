@@ -1,0 +1,37 @@
+@import './config.scss';
+
+header{
+    background: $header-background-color;
+    color: $default-text-color;
+
+    .logo{
+        float:left;
+
+        a{
+            padding:10px 20px;
+            text-decoration:none;
+
+            background: $header-background-color ;
+            color: tab-hover-func($header-background-color);
+            
+            :hover{
+                box-shadow:1px 1px 2px #444444;
+            }
+        }
+    }
+
+    .header-tabs{
+        float:right;
+
+        a{
+            display:inline-block;
+            text-decoration:none;
+            padding:10px;
+
+            :hover{
+                background: $header-hover-background-color ;
+                color: tab-hover-func($header-hover-background-color);
+            }
+        }
+    }
+}
