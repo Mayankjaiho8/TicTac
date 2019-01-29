@@ -1,0 +1,15 @@
+$header-background-color : #333333;
+$header-hover-background-color : #eee;
+$default-text-color: #eee;
+$default-hover-text-color: #eee;
+
+
+
+@function tab-hover-func($background-color){
+    @if ($background-color == $header-background-color){
+        @return  $default-text-color;
+    }
+    @else if($background-color == $header-hover-background-color){
+        @return $default-hover-text-color
+    }
+}
