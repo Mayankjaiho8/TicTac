@@ -1,6 +1,8 @@
-import React, { Componentn } from 'react';
-
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import App from './App';
+
 class LayoutComponent extends Component{
 
     constructor(props){
@@ -10,7 +12,12 @@ class LayoutComponent extends Component{
     }
 
     getLayoutPage(){
+        const { currentPageNumber } = this.props;
 
+        switch(currentPageNumber){
+            case 1:
+                return <App />
+        }
     }
 
     render(){
@@ -25,7 +32,7 @@ class LayoutComponent extends Component{
 
 const mapStateToProps = store => {
     return {
-
+        currentPageNumber : store.appStateReducer.pageNumber,
     }
 }
 
