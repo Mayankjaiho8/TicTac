@@ -1,7 +1,9 @@
 import { combineRedcuer } from 'redux';
 
-const rootReducer = combineRedcuer({
+import appStateReducer from './appStateReducer';
 
+const rootReducer = combineRedcuer({
+    appStateReducer,
 })
 
 export default rootReducer;
