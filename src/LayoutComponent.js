@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import App from './App';
+import './Sass/main.scss';
+import MiddlePageComponent from './MiddlePageComponent/middlePageComponent';
+import HeaderComponent from './HeaderComponent/headerComponent';
 
 class LayoutComponent extends Component{
 
@@ -22,9 +25,14 @@ class LayoutComponent extends Component{
 
     render(){
         return (
-                <React.Component>
-                    { this.getLayoutPage() }
-                </React.Component>
+                <div className="layout-container">
+                    <HeaderComponent />
+                    <div className="middle-page-container">
+                        <MiddlePageComponent>
+                            { this.getLayoutPage() }
+                        </MiddlePageComponent>
+                    </div>
+                </div>
             )
     }
 }

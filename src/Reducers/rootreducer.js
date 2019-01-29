@@ -1,8 +1,8 @@
-import { combineRedcuer } from 'redux';
+import { combineReducers } from 'redux';
 
 import appStateReducer from './appStateReducer';
 
-const rootReducer = combineRedcuer({
+const rootReducer = combineReducers({
     appStateReducer,
 })
 

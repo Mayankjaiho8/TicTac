@@ -1,5 +1,35 @@
 @import './config.scss';
 
+body{
+    
+}
+
 *{
-    box-sizing:border-box;
+    box-sizing: border-box;
+    color: $default-text-color; 
+}
+
+.btn{
+    background:$btn-default-color;
+    padding:20px;
+    text-align:center;
+    border:none;
+
+    &:hover{
+        background:lighten($btn-default-color, 10);
+        cursor:pointer;
+    }
+}
+
+.btn-center{
+    margin : 0 auto;
+}
+
+.layout-container{
+    background:lighten( #333, 5);
+}
+
+.middle-page-container{
+    background:lighten( #333, 5);
+    min-height: calc(100vh - 40px);
 }

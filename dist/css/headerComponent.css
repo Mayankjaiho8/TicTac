@@ -1,0 +1,30 @@
+header {
+  background: #4d4d4d;
+  color: #eee;
+  overflow: hidden; }
+  header .logo {
+    float: left;
+    margin-left: 10px; }
+    header .logo a {
+      padding: 20px 20px;
+      text-decoration: none;
+      background: #333333;
+      color: #eee;
+      display: block; }
+      header .logo a:hover {
+        box-shadow: 5px 1px 2px #222222;
+        background: #4d4d4d; }
+  header .header-tabs {
+    float: right;
+    margin-right: 5px; }
+    header .header-tabs a {
+      display: inline-block;
+      text-decoration: none;
+      padding: 20px;
+      background: #333333;
+      color: #eee;
+      margin: 0 5px; }
+      header .header-tabs a:hover {
+        box-shadow: 5px 1px 2px #222222;
+        background: #4d4d4d;
+        color: #eee; }

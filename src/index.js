@@ -8,6 +8,7 @@ import App from './App';
 import Layout from './LayoutComponent.js';
 import { createStore, applyMiddleware } from 'redux';
 import * as serviceWorker from './serviceWorker';
+import thunk from 'redux-thunk'
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

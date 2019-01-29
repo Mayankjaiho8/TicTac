@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  color: #eee; }
+
+.btn {
+  background: #cf33c7;
+  padding: 20px;
+  text-align: center;
+  border: none; }
+  .btn:hover {
+    background: #d95cd2;
+    cursor: pointer; }
+
+.btn-center {
+  margin: 0 auto; }
+
+.layout-container {
+  background: #404040; }
+
+.middle-page-container {
+  background: #404040;
+  min-height: calc(100vh - 40px); }

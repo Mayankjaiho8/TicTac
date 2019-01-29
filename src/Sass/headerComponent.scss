@@ -1,36 +1,43 @@
 @import './config.scss';
 
 header{
-    background: $header-background-color;
+    background: lighten($header-background-color, 10);
     color: $default-text-color;
+    overflow:hidden;
 
     .logo{
         float:left;
+        margin-left:10px;
 
         a{
-            padding:10px 20px;
+            padding:20px 20px;
             text-decoration:none;
-
             background: $header-background-color ;
             color: tab-hover-func($header-background-color);
-            
-            :hover{
-                box-shadow:1px 1px 2px #444444;
+
+            display:block;
+            &:hover{
+                box-shadow:5px 1px 2px #222222;
+                background : lighten($header-background-color, 10)
             }
         }
     }
 
     .header-tabs{
         float:right;
+        margin-right:5px;
 
         a{
             display:inline-block;
             text-decoration:none;
-            padding:10px;
-
-            :hover{
-                background: $header-hover-background-color ;
-                color: tab-hover-func($header-hover-background-color);
+            padding:20px;
+            background: $header-background-color;
+            color: tab-hover-func($header-background-color);
+            margin: 0 5px;
+            &:hover{
+                box-shadow:5px 1px 2px #222222;
+                background : lighten($header-background-color, 10);
+                color: tab-hover-func($header-background-color);
             }
         }
     }
