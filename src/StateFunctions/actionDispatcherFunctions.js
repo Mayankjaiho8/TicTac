@@ -7,3 +7,13 @@ export const ticTacCellClickedActionDispatcher = (id, currentPlayerId) => dispat
     
     dispatcher({type:'TIC_TAC_CELL_CLICKED', payload:[id, currentPlayerId]});
 }
+
+export const newGameBtnClickedActionDispatcher = () => dispatcher => {
+    
+    dispatcher({type:'NEW_GAME_BTN_CLICKED'});
+}
+
+export const resetBtnClickedActionDispatcher = () => dispatcher => {
+
+    dispatcher({type:'RESET_GAME_BTN_CLICKED'});
+}

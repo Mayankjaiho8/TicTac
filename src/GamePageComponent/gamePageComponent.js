@@ -5,9 +5,14 @@ import './../Sass/gamePageComponent.scss';
 
 import TicTacBoardComponent from './../TicTacBoardComponent/ticTacBoardComponent';
 
+import { newGameBtnClickedActionDispatcher, resetBtnClickedActionDispatcher } from './../StateFunctions/actionDispatcherFunctions';
+
 class GamePageComponent extends Component {
 
     render(){
+        
+        const { newGameBtnClickedHandler, resetBtnClickedHandler } = this.props;
+
         return (
 
             <div className="game-page-container">
@@ -19,8 +24,8 @@ class GamePageComponent extends Component {
                     <div>
                         <TicTacBoardComponent />
                         <div className="game-board-btn-container">
-                            <button className="btn">New Game</button>
-                            <button className="btn">Reset</button>
+                            <button onClick = { newGameBtnClickedHandler} className="btn">New Game</button>
+                            <button onClick = { resetBtnClickedHandler } className="btn">Reset</button>
                         </div>
                     </div>
                 </div>
@@ -38,7 +43,8 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        newGameBtnClickedHandler : () => dispatch(newGameBtnClickedActionDispatcher()),
+        resetBtnClickedHandler : () => dispatch(resetBtnClickedActionDispatcher()),
     }
 }
 

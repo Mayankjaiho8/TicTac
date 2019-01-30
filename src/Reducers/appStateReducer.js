@@ -7,6 +7,10 @@ const initialState = {
 const appStateReducer = (state = initialState, action) => {
     
     switch(action.type){
+        case 'NEW_GAME_BTN_CLICKED':
+            return {
+                ...initialState,
+            }
         case 'CURRENT_PAGE_NUMBER_CHANGED':
             
             const currentPageNumber = action.payload;

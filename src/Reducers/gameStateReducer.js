@@ -8,6 +8,10 @@ const initialState = {
 const gameStateReducer = (state = initialState, action) => {
 
     switch(action.type){
+        case 'RESET_GAME_BTN_CLICKED':
+            return {
+                ...initialState,
+            }
         case 'TIC_TAC_CELL_CLICKED' :
         
             const cellId = action.payload[0];
