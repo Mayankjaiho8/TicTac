@@ -4,10 +4,83 @@
     min-height:calc(100vh - 61px);
 
     .game-board-container{
-        width:40%;
+        width:20%;
         margin:0 auto;
         padding-top: 10%;
         background:lighten($default-background-color, 10);
+
+        .game-board-btn-container{
+            display:grid;
+            grid-template-columns: auto auto;
+            padding: 0 2%;
+            grid-gap:5px;
+        }
+
+        .tictac-board-component{
+            display:grid;
+            grid-template-columns: repeat(3, 1fr);
+            
+            margin-bottom:10px;
+
+            .tictac-cell{
+                width:90%;
+                margin: 5px auto;
+                background:rgba(117, 163, 163, 0.8);
+                cursor:pointer;
+                height:60px;
+                position:relative;
+                
+                .default{
+                   
+                    width:100%;
+                    height:100%;
+                    &:hover{
+                        background:lighten(rgba(117, 163, 163, 0.8), 10);
+                    }
+                }
+
+                .red-cross{
+                    &:hover{
+                        background:lighten(rgba(117, 163, 163, 0.8), 10);
+                    } 
+
+                    &:before{
+                        content:"";
+                        position:absolute;
+                        height:2px;
+                        width:60px;
+                        top:50%;
+                        background:#ff704d;
+                        transform:translateY(1px) rotate(-45deg);
+                    }
+                    
+                    &:after{
+                        content:"";
+                        position:absolute;
+                        height:60px;
+                        width:2px;
+                        left:50%;
+                        background:#ff704d;
+                        transform:translateX(1px) rotate(-45deg);
+                    }
+                }
+
+                .green-dot{
+                    &:hover{
+                        background:lighten(rgba(117, 163, 163, 0.8), 10);
+                    } 
+                    
+                    top:50%;
+                    left:50%;
+                    width:100%;
+                    height:100%;
+                    position:absolute;
+                    transform:translate(-50%, -50%);
+                    border-radius:50%;
+                    background:#357a35;
+                }
+            }
+        }
     }
 
     .score-board-container{

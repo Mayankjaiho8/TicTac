@@ -1,8 +1,11 @@
 const initialState = {
     currentPageNumber : 1,
+    player1Name:'',
+    player2Name:''
 }
 
 const appStateReducer = (state = initialState, action) => {
+    
     switch(action.type){
         case 'CURRENT_PAGE_NUMBER_CHANGED':
             

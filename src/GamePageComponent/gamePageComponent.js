@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 
 import './../Sass/gamePageComponent.scss';
 
+import TicTacBoardComponent from './../TicTacBoardComponent/ticTacBoardComponent';
+
 class GamePageComponent extends Component {
 
     render(){
@@ -14,10 +16,15 @@ class GamePageComponent extends Component {
                 </div>
 
                 <div className="game-board-container">
-                    
+                    <div>
+                        <TicTacBoardComponent />
+                        <div className="game-board-btn-container">
+                            <button className="btn">New Game</button>
+                            <button className="btn">Reset</button>
+                        </div>
+                    </div>
                 </div>
-
-               
+                
             </div>
         )
     }
