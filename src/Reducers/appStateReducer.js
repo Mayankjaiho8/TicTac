@@ -1,14 +1,16 @@
 const initialState = {
-    pageNumber : 1,
+    currentPageNumber : 1,
 }
 
 const appStateReducer = (state = initialState, action) => {
     switch(action.type){
-        case 'PAGE_NUMBER_CHANGED':
-            const pageNumber = action.payload;
+        case 'CURRENT_PAGE_NUMBER_CHANGED':
+            
+            const currentPageNumber = action.payload;
+            
             return {
                 ...state,
-                pageNumber
+                currentPageNumber
             }
         default :
             return state;

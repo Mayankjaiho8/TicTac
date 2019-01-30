@@ -20,10 +20,14 @@ class LayoutComponent extends Component{
         switch(currentPageNumber){
             case 1:
                 return <App />
+            default : 
+                return <App />
         }
     }
 
     render(){
+        const { currentPageNumber } = this.props;
+        
         return (
                 <div className="layout-container">
                     <HeaderComponent />
@@ -40,7 +44,7 @@ class LayoutComponent extends Component{
 
 const mapStateToProps = store => {
     return {
-        currentPageNumber : store.appStateReducer.pageNumber,
+        currentPageNumber : store.appStateReducer.currentPageNumber,
     }
 }
 

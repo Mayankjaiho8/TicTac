@@ -2,9 +2,9 @@ import React from 'react';
 
 const MiddlePageComponent = props => {
     return (
-        <div>
+        <React.Fragment>
             { props.children }
-        </div>
+        </React.Fragment>
     )
 }
 
