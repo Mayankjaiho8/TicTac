@@ -1,0 +1,17 @@
+.personaldetails-container {
+  padding-top: 5%;
+  text-align: center; }
+  .personaldetails-container .personaldetails-container-form-container {
+    width: 70%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); }
+    .personaldetails-container .personaldetails-container-form-container label {
+      grid-column: 1/span 2; }
+    .personaldetails-container .personaldetails-container-form-container input[type="text"] {
+      grid-column: 3/span 4;
+      padding: 15px; }
+    .personaldetails-container .personaldetails-container-form-container button {
+      grid-column: 4;
+      margin-left: 0;
+      width: 100%; }

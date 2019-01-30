@@ -26,7 +26,7 @@ class App extends Component {
           <h1>Welcome to play Tic - Tac- Toe</h1>
           <p> You can choose to play with another player and maintain the scores and history to get a championship kinda feeling :D</p>
           <p> Click below button to get Started</p>
-          <button className="btn btn-center" onClick={ this.handleStartButtonClick }>Start The Game</button>
+          <button className="btn btn-center" onClick={ this.handleStartButtonClick }>Let's Play</button>
         </div>
       );
     }

@@ -12,11 +12,11 @@
     cursor: pointer; }
 
 .btn-center {
-  margin: 0 auto; }
+  margin: 10px auto; }
 
 .layout-container {
   background: #404040; }
 
 .middle-page-container {
   background: #404040;
-  min-height: calc(100vh - 40px); }
+  min-height: calc(100vh - 61px); }

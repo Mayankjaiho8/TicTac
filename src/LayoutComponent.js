@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 
 import App from './App';
 import './Sass/main.scss';
+
 import MiddlePageComponent from './MiddlePageComponent/middlePageComponent';
 import HeaderComponent from './HeaderComponent/headerComponent';
+import PersonalDetaisComponent from './PersonalDetailsComponent/personalDetailsComponent';
+import GamePageComponent from './GamePageComponent/gamePageComponent';
 
 class LayoutComponent extends Component{
 
@@ -18,8 +21,10 @@ class LayoutComponent extends Component{
         const { currentPageNumber } = this.props;
 
         switch(currentPageNumber){
-            case 1:
-                return <App />
+            case 2:
+                return <PersonalDetaisComponent />
+            case 3:
+                return <GamePageComponent />
             default : 
                 return <App />
         }

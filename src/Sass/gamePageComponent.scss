@@ -1,0 +1,20 @@
+@import './config.scss';
+
+.game-page-container{
+    min-height:calc(100vh - 61px);
+
+    .game-board-container{
+        width:40%;
+        margin:0 auto;
+        padding-top: 10%;
+        background:lighten($default-background-color, 10);
+    }
+
+    .score-board-container{
+        width:20%;
+        margin-top:10%;
+        float:right;
+        background:lighten($default-background-color, 10);
+    }
+}
+

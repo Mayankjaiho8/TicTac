@@ -1,0 +1,31 @@
+@import './config.scss';
+
+.personaldetails-container{
+    padding-top:5%;
+    text-align:center;
+
+   
+
+    .personaldetails-container-form-container{
+        width:70%;
+        margin:0 auto;
+        display:grid;
+        grid-template-columns: repeat(6, 1fr);
+
+        
+        label{
+            grid-column:1/span 2;
+        }
+
+        input[type="text"]{
+            grid-column:3/span 4;
+            padding:15px;
+        }
+
+        button{
+            grid-column:4;
+            margin-left:0;
+            width:100%;
+        }
+    }
+}
