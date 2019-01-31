@@ -2,7 +2,58 @@
 
 .game-page-container{
     min-height:calc(100vh - 61px);
+    overflow:hidden;
 
+    .score-board-container{
+        width:25%;
+        margin-top:10%;
+        float:right;
+        background:lighten($default-background-color, 10);
+        border:1px solid orange;
+        
+        .score-card-header{
+            width:100%;
+            padding:10px;
+            background:#ddd;
+            cursor:pointer;
+            color:#333;
+            text-align:Center;
+            font-weight:bold;
+
+            &:hover{
+                background:darken(#ddd, 10)
+            }
+        }
+
+        .score-card{
+            padding-top:20%;
+            padding-bottom:5%;
+            &-player-name-header{
+                color: #3399ff;
+                padding-left:5%;
+                font-size:1.8em;
+            }
+            
+            &-player-score{
+               padding-left:5%;
+            }
+        }
+
+        .match-stats-card{
+            
+            padding-bottom:5%;
+
+            .match-stats-header{
+                color: #3399ff;
+                padding-left:5%;
+                font-size:1.8em;
+            }
+            
+            .match-stats-content{
+               padding-left:5%;
+            }
+        }
+    }
     .game-board-container{
         width:20%;
         margin:0 auto;
@@ -91,7 +142,7 @@
 
                 .green-dot{
                     &:hover{
-                        background:lighten(#357a35, 10);
+                        background:lighten(#589b58, 10);
                     } 
                     
                     top:50%;
@@ -105,13 +156,6 @@
                 }
             }
         }
-    }
-
-    .score-board-container{
-        width:20%;
-        margin-top:10%;
-        float:right;
-        background:lighten($default-background-color, 10);
     }
 }
 

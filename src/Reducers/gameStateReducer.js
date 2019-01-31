@@ -9,22 +9,29 @@ const initialState = {
     isGameFinished : false,
     winnerId : null,
     isGameDrawnFlag : false,
+    totalGames : 0,
+    numOfMatchesDrawn:0,
+    numOfMatchesPlayer1Won : 0,
 }
 
 const gameStateReducer = (state = initialState, action) => {
+    let { numOfMatchesDrawn, numOfMatchesPlayer1Won, gameHistory, totalGames } = state;
 
     switch(action.type){
-        case 'NEW_GAME_BTN_CLICKED':
+        
+        case 'NEW_GAME_BTN_CLICKED' :
 
             return {
                 ...initialState,
             }
         case 'RESET_GAME_BTN_CLICKED':
-            const gameHistory = state.gameHistory;
 
             return {
                 ...initialState,
                 gameHistory,
+                numOfMatchesDrawn,
+                numOfMatchesPlayer1Won,
+                totalGames
             }
         case 'TIC_TAC_CELL_CLICKED' :
         
@@ -43,24 +50,35 @@ const gameStateReducer = (state = initialState, action) => {
 
                 if(checkForWinner(cellId, currentPlayerId === 1 ? player1CellIdArr : player2CellIdArr)) {
                     let gameHistory = state.gameHistory;
-                    
-                    gameHistory.push({
-                        winnerId : currentPlayerId,     
-                    })
 
+                    gameHistory.push({
+                        isGameDrawn : false,
+                        winnerId : currentPlayerId,   
+                    })
+                    
                     return {
                         ...initialState,
                         gameHistory,
                         isGameFinished : true,
                         winnerId : currentPlayerId,
+                        totalGames : totalGames + 1,
+                        numOfMatchesPlayer1Won : currentPlayerId === 1 ? numOfMatchesPlayer1Won + 1 : numOfMatchesPlayer1Won,
+                        numOfMatchesDrawn,
                     }
                 }
 
                 if(defaultCellIdArray.length === 0){
+                    gameHistory.push({
+                        isGameDrawn : true,
+                        winnerId : null,   
+                    })
+
                     return {
                         ...state,
                         isGameFinished : true,
-                        isGameDrawnFlag : true
+                        isGameDrawnFlag : true,
+                        totalGames : totalGames + 1,
+                        numOfMatchesDrawn : numOfMatchesDrawn + 1
                     }
                 }
 

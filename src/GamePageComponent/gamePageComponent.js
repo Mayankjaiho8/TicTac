@@ -4,14 +4,29 @@ import { connect } from 'react-redux';
 import './../Sass/gamePageComponent.scss';
 
 import TicTacBoardComponent from './../TicTacBoardComponent/ticTacBoardComponent';
+import ScoreBoardComponent from './../ScoreBoardComponent/scoreBoardComponent';
 
-import { newGameBtnClickedActionDispatcher, resetBtnClickedActionDispatcher } from './../StateFunctions/actionDispatcherFunctions';
+import { newGameBtnClickedActionDispatcher, resetBtnClickedActionDispatcher, 
+        gameFinishActionDispatcher, updateGameHistoryActionDispatcher } from './../StateFunctions/actionDispatcherFunctions';
+
 import { getPlayerNameFromId } from './../StateFunctions/helperFunctions'
 
 class GamePageComponent extends Component {
 
-    render(){
+    componentWillReceiveProps(nextProps){
         
+        const { gameFinishActionDispatcherHandler, isGameFinished, isGameDrawnFlag, winnerId } = nextProps;
+        
+        if(isGameFinished){
+            
+            if(!isGameDrawnFlag){
+                gameFinishActionDispatcherHandler(winnerId);
+            }
+            
+        }
+    }
+
+    render(){
         const { newGameBtnClickedHandler, resetBtnClickedHandler, player1Name, player2Name, isGameFinished, isGameDrawnFlag, winnerId, currentPlayerId } = this.props;
         
         const playerHeaderStyleObj = currentPlayerId == 1 ? {
@@ -19,12 +34,12 @@ class GamePageComponent extends Component {
         }: {
             color: '#ff704d'
         }
-
+        
         return (
 
             <div className="game-page-container">
                 <div className="score-board-container">
-                    
+                    <ScoreBoardComponent />
                 </div>
 
                 <div className="game-board-container">
@@ -82,6 +97,7 @@ const mapDispatchToProps = dispatch => {
     return {
         newGameBtnClickedHandler : () => dispatch(newGameBtnClickedActionDispatcher()),
         resetBtnClickedHandler : () => dispatch(resetBtnClickedActionDispatcher()),
+        gameFinishActionDispatcherHandler : (winnerId) => dispatch(gameFinishActionDispatcher(winnerId)),
     }
 }
 

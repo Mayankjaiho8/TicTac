@@ -19,9 +19,17 @@ export const resetBtnClickedActionDispatcher = () => dispatcher => {
 }
 
 export const updatePlayer1NameActionDispatcher = player1Name => dispatcher => {
-    return dispatcher({type:'PLAYER_1_NAME_UPDATED', payload : player1Name})
+    dispatcher({type:'PLAYER_1_NAME_UPDATED', payload : player1Name})
 }
 
 export const updatePlayer2NameActionDispatcher = player2Name => dispatcher => {
-    return dispatcher({type:'PLAYER_2_NAME_UPDATED', payload : player2Name})
+    dispatcher({type:'PLAYER_2_NAME_UPDATED', payload : player2Name})
+}
+
+export const gameFinishActionDispatcher = (winnerId) => dispatcher => {
+    dispatcher({type:'GAME_FINISHED', payload:winnerId})
+}
+
+export const toggleScoreBoardHandlerActionDispacther = () => dispatcher => {
+    dispatcher({type:'TOGGLE_SCORE_BOARD'})
 }
