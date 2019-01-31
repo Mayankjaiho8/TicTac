@@ -1,16 +1,30 @@
+import { checkForWinner } from './../StateFunctions/helperFunctions';
+
 const initialState = {
     currentPlayerId : 1,
     defaultCellIdArray : [1,2,3,4,5,6,7,8,9],
     player1CellIdArr:[],
     player2CellIdArr:[],
+    gameHistory: [],
+    isGameFinished : false,
+    winnerId : null,
+    isGameDrawnFlag : false,
 }
 
 const gameStateReducer = (state = initialState, action) => {
 
     switch(action.type){
-        case 'RESET_GAME_BTN_CLICKED':
+        case 'NEW_GAME_BTN_CLICKED':
+
             return {
                 ...initialState,
+            }
+        case 'RESET_GAME_BTN_CLICKED':
+            const gameHistory = state.gameHistory;
+
+            return {
+                ...initialState,
+                gameHistory,
             }
         case 'TIC_TAC_CELL_CLICKED' :
         
@@ -26,6 +40,30 @@ const gameStateReducer = (state = initialState, action) => {
                 defaultCellIdArray = defaultCellIdArray.filter(id => id !== cellId);
                 
                 currentPlayerId === 1 ? player1CellIdArr.push(cellId) : player2CellIdArr.push(cellId);
+
+                if(checkForWinner(cellId, currentPlayerId === 1 ? player1CellIdArr : player2CellIdArr)) {
+                    let gameHistory = state.gameHistory;
+                    
+                    gameHistory.push({
+                        winnerId : currentPlayerId,     
+                    })
+
+                    return {
+                        ...initialState,
+                        gameHistory,
+                        isGameFinished : true,
+                        winnerId : currentPlayerId,
+                    }
+                }
+
+                if(defaultCellIdArray.length === 0){
+                    return {
+                        ...state,
+                        isGameFinished : true,
+                        isGameDrawnFlag : true
+                    }
+                }
+
                 currentPlayerId = currentPlayerId === 1 ? 2 : 1;
 
                 return {

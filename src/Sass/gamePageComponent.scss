@@ -9,11 +9,35 @@
         padding-top: 10%;
         background:lighten($default-background-color, 10);
 
+        .player-header{
+            text-align:center;
+        }
+
         .game-board-btn-container{
             display:grid;
             grid-template-columns: auto auto;
             padding: 0 2%;
             grid-gap:5px;
+        }
+
+        .congrats-message-container{
+            
+            h2, p{
+                color:#33adff;
+            }
+            text-align:center;
+            padding: 10px;
+            margin-bottom:10px;
+        }
+
+        .draw-message-container{
+            h2, h4, p{
+                color:#ffff00;
+            }
+
+            text-align:center;
+            padding: 10px;
+            margin-bottom:10px;
         }
 
         .tictac-board-component{
@@ -67,7 +91,7 @@
 
                 .green-dot{
                     &:hover{
-                        background:lighten(rgba(117, 163, 163, 0.8), 10);
+                        background:lighten(#357a35, 10);
                     } 
                     
                     top:50%;

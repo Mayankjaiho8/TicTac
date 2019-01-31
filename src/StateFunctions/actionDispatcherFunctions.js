@@ -17,3 +17,11 @@ export const resetBtnClickedActionDispatcher = () => dispatcher => {
 
     dispatcher({type:'RESET_GAME_BTN_CLICKED'});
 }
+
+export const updatePlayer1NameActionDispatcher = player1Name => dispatcher => {
+    return dispatcher({type:'PLAYER_1_NAME_UPDATED', payload : player1Name})
+}
+
+export const updatePlayer2NameActionDispatcher = player2Name => dispatcher => {
+    return dispatcher({type:'PLAYER_2_NAME_UPDATED', payload : player2Name})
+}

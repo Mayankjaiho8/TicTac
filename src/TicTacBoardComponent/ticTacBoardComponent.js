@@ -22,10 +22,10 @@ class TicTacBoardComponent extends Component{
                 ticTacBoardArr.push(<TicTacCellComponent key={i} id = {i} status={'default'} />)
             }
             else if(player2CellIdArr.includes(i)){
-                ticTacBoardArr.push(<TicTacCellComponent id = {i} status={'red'} />)
+                ticTacBoardArr.push(<TicTacCellComponent key={i} id = {i} status={'red'} />)
             }
             else if(player1CellIdArr.includes(i)){
-                ticTacBoardArr.push(<TicTacCellComponent id = {i} status={'green'} />)
+                ticTacBoardArr.push(<TicTacCellComponent key={i} id = {i} status={'green'} />)
             }
         }
 

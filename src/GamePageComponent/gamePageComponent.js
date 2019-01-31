@@ -6,12 +6,19 @@ import './../Sass/gamePageComponent.scss';
 import TicTacBoardComponent from './../TicTacBoardComponent/ticTacBoardComponent';
 
 import { newGameBtnClickedActionDispatcher, resetBtnClickedActionDispatcher } from './../StateFunctions/actionDispatcherFunctions';
+import { getPlayerNameFromId } from './../StateFunctions/helperFunctions'
 
 class GamePageComponent extends Component {
 
     render(){
         
-        const { newGameBtnClickedHandler, resetBtnClickedHandler } = this.props;
+        const { newGameBtnClickedHandler, resetBtnClickedHandler, player1Name, player2Name, isGameFinished, isGameDrawnFlag, winnerId, currentPlayerId } = this.props;
+        
+        const playerHeaderStyleObj = currentPlayerId == 1 ? {
+            color: '#79ff4d'
+        }: {
+            color: '#ff704d'
+        }
 
         return (
 
@@ -22,7 +29,32 @@ class GamePageComponent extends Component {
 
                 <div className="game-board-container">
                     <div>
-                        <TicTacBoardComponent />
+
+                        {!isGameFinished && (
+                            <div className="player-header">
+                                <h3 style = { playerHeaderStyleObj }>Current Player : { getPlayerNameFromId(currentPlayerId, [player1Name, player2Name]) }</h3>
+                            </div>
+                        )
+                        }
+                        { !isGameFinished && <TicTacBoardComponent /> }
+                        
+                        { isGameFinished && ( isGameDrawnFlag ? (
+                                                                    <div className="draw-message-container">
+                                                                        <h2>Game is Drawn :| </h2>
+                                                                        <h4>Better Luck Next Time</h4>
+                                                                        <p>Press Reset to continue to another game</p>
+                                                                    </div>
+                                                                ) 
+                                                            : (
+                                                                <div className="congrats-message-container">
+                                                                        <h2> Congratulations { getPlayerNameFromId(winnerId, [player1Name, player2Name]) } !! </h2>
+                                                                        <h2>You Are the Winner :)</h2>
+                                                                        <p>Press Reset to continue to another game</p>
+                                                                </div>
+                                                              )
+                                            )
+                        }
+
                         <div className="game-board-btn-container">
                             <button onClick = { newGameBtnClickedHandler} className="btn">New Game</button>
                             <button onClick = { resetBtnClickedHandler } className="btn">Reset</button>
@@ -37,7 +69,12 @@ class GamePageComponent extends Component {
 
 const mapStateToProps = store => {
     return{
-
+        isGameFinished : store.gameStateReducer.isGameFinished,
+        winnerId : store.gameStateReducer.winnerId,
+        currentPlayerId : store.gameStateReducer.currentPlayerId,
+        player1Name : store.appStateReducer.player1Name,
+        player2Name : store.appStateReducer.player2Name,
+        isGameDrawnFlag : store.gameStateReducer.isGameDrawnFlag,
     }
 }
 
