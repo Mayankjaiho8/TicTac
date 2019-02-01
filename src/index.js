@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import rootReducer from './Reducers/rootreducer';
 import './index.css';
-import App from './App';
 import Layout from './LayoutComponent.js';
 import { createStore, applyMiddleware } from 'redux';
 import * as serviceWorker from './serviceWorker';

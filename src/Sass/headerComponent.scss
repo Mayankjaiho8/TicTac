@@ -8,18 +8,21 @@ header{
     .logo{
         float:left;
         margin-left:10px;
-
-        a{
-            padding:20px 20px;
-            text-decoration:none;
-            background: $header-background-color ;
-            color: tab-hover-func($header-background-color);
-
-            display:block;
-            &:hover{
-                box-shadow:5px 1px 2px #222222;
-                background : lighten($header-background-color, 10)
-            }
+        padding:20px 20px;
+        background: $header-background-color ;
+        color: tab-hover-func($header-background-color);
+        outline:none;
+        height:100%;
+        border:none;
+        font: {
+            size:1em;
+            family:inherit;
+        }
+        
+        
+        &:hover{
+            box-shadow:5px 1px 2px #222222;
+            background : lighten($header-background-color, 10)
         }
     }
 
