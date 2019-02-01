@@ -23,6 +23,7 @@ const gameStateReducer = (state = initialState, action) => {
 
             return {
                 ...initialState,
+                gameHistory : [],
             }
         case 'RESET_GAME_BTN_CLICKED':
 

@@ -5,12 +5,19 @@ const initialState = {
     player1Score:0,
     player2Score:0,
     collapseScoreBoardFlag : false,
+    collapsedHistoryPageFlag : true,
 }
 
 const appStateReducer = (state = initialState, action) => {
     
     switch(action.type){
         
+        case 'TOGGLE_HISTORY_PAGE' :
+            
+            return {
+                ...state,
+                collapsedHistoryPageFlag : state.collapsedHistoryPageFlag === true ? false : true
+            }
         case 'TOGGLE_SCORE_BOARD':
 
             return {

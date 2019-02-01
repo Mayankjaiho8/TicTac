@@ -1,9 +1,11 @@
 import React,{ Component } from 'react';
 import './../Sass/gamePageComponent.scss';
 
+import HistoryPageComponent from './../HistoryPageComponent/historyPageComponent';
+
 import { connect } from 'react-redux';
 
-import { toggleScoreBoardHandlerActionDispacther } from './../StateFunctions/actionDispatcherFunctions'
+import { toggleScoreBoardHandlerActionDispacther } from './../StateFunctions/actionDispatcherFunctions';
 
 class ScoreBoardComponent extends Component {
 
@@ -16,6 +18,7 @@ class ScoreBoardComponent extends Component {
 
         return (
             <React.Fragment>
+                <HistoryPageComponent />
                 <div onClick = { toggleScoreBoardHandler} className="score-card-header">
                     Score Board
                 </div>
@@ -30,8 +33,8 @@ class ScoreBoardComponent extends Component {
 
                     <div className="match-stats-card">
                         <div className="match-stats-header">Total Games : <span className="match-stats-content">{ totalGames }</span></div>
-                        <div className="match-stats-header">Player 1 Won : <span className="match-stats-content">{ numOfMatchesPlayer1Won }</span></div>
-                        <div className="match-stats-header">Player 2 Won : <span className="match-stats-content">{ totalGames - numOfMatchesDrawn - numOfMatchesPlayer1Won }</span></div>
+                        <div className="match-stats-header">{ player1Name } Won : <span className="match-stats-content">{ numOfMatchesPlayer1Won }</span></div>
+                        <div className="match-stats-header">{ player2Name } Won : <span className="match-stats-content">{ totalGames - numOfMatchesDrawn - numOfMatchesPlayer1Won }</span></div>
                         <div className="match-stats-header">Matches Drawn : <span className="match-stats-content">{ numOfMatchesDrawn }</span></div>
                     </div>
                 </div>

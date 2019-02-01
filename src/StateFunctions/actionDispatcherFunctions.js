@@ -33,3 +33,7 @@ export const gameFinishActionDispatcher = (winnerId) => dispatcher => {
 export const toggleScoreBoardHandlerActionDispacther = () => dispatcher => {
     dispatcher({type:'TOGGLE_SCORE_BOARD'})
 }
+
+export const toggleHistoryPageHandlerActionCreator = () => dispatcher => {
+    dispatcher({type:'TOGGLE_HISTORY_PAGE'})
+}
